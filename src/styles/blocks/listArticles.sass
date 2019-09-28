@@ -1,0 +1,49 @@
+.articles__container
+  display: flex
+  flex-wrap: wrap
+  width: 100%
+
+.preview_card
+  height: 400px
+  position: relative
+  &:hover
+    .preview_card__image img
+      transition: transform 0.3s
+      transform: scale(1.1)
+.preview_card:nth-of-type(3n)
+  background-color: $body-color
+  flex: 1 100%
+.preview_card:nth-of-type(3n+1)
+  background-color: $red
+  flex: 0.5 50%
+.preview_card:nth-of-type(3n+2)
+  background-color: $blue
+  flex: 0.5 50%
+
+.preview_card__image
+  height: 100%
+  width: 100%
+
+.preview_card__caption
+  background-color: rgba(0,0,0,0.3)
+  color: $background-color
+  position: absolute
+  text-align: center
+  padding-top: 150px
+  top: 0
+  left: 0
+  right: 0
+  bottom: 0
+  transition: background-color 0.2s
+  &:hover
+    background-color: rgba(0,0,0,0.2)
+
+.preview_card__title
+  display: inline-block
+  font-size: 2em
+  font-weight: bold
+  border-bottom: solid 1px $background-color
+  margin-bottom: 15px
+
+.preview_card__subtitle
+  font-size: 1.2em

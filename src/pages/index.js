@@ -8,8 +8,14 @@ const IndexPage = ({ data }) => (
     <div className="articles__container">
       {
         data.allDatoCmsArticle.edges.map(({ node: article }) => (
-          <ArticlePreview key={article.id} { ...article } size={50} />
+          <ArticlePreview key={article.id} { ...article } />
         ))
+        .concat(data.allDatoCmsArticle.edges.map(({ node: article }) => (
+          <ArticlePreview key={Date()} { ...article } />
+        )))
+        .concat(data.allDatoCmsArticle.edges.map(({ node: article }) => (
+          <ArticlePreview key={Date()+1} { ...article } />
+        )))
       }
     </div>
   </Layout>

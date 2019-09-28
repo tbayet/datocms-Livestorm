@@ -1,30 +1,17 @@
 import React from 'react'
-import { Link, graphql } from 'gatsby'
-import Masonry from 'react-masonry-component'
-import Img from 'gatsby-image'
+import { graphql } from 'gatsby'
 import Layout from "../components/layout"
+import ArticlePreview from "../components/articlePreview.js"
 
 const IndexPage = ({ data }) => (
   <Layout>
-    <Masonry className="showcase">
-      {data.allDatoCmsWork.edges.map(({ node: work }) => (
-        <div key={work.id} className="showcase__item">
-          <figure className="card">
-            <Link to={`/works/${work.slug}`} className="card__image">
-              <Img fluid={work.coverImage.fluid} />
-            </Link>
-            <figcaption className="card__caption">
-              <h6 className="card__title">
-                <Link to={`/works/${work.slug}`}>{work.title}</Link>
-              </h6>
-              <div className="card__description">
-                <p>{work.excerpt}</p>
-              </div>
-            </figcaption>
-          </figure>
-        </div>
-      ))}
-    </Masonry>
+    <div className="articles__container">
+      {
+        data.allDatoCmsArticle.edges.map(({ node: article }) => (
+          <ArticlePreview key={article.id} { ...article } size={50} />
+        ))
+      }
+    </div>
   </Layout>
 )
 
@@ -32,15 +19,15 @@ export default IndexPage
 
 export const query = graphql`
   query IndexQuery {
-    allDatoCmsWork(sort: { fields: [position], order: ASC }) {
+    allDatoCmsArticle(sort: { fields: [position], order: ASC }) {
       edges {
         node {
           id
           title
-          slug
-          excerpt
-          coverImage {
-            fluid(maxWidth: 450, imgixParams: { fm: "jpg", auto: "compress" }) {
+          subtitle
+          articleUrl
+          mainPicture {
+            fluid(maxWidth: 1280, imgixParams: { fm: "jpg", auto: "compress" }) {
               ...GatsbyDatoCmsSizes
             }
           }

@@ -1,8 +1,8 @@
 {
-  "name": "gatsby-datocms-demo",
-  "description": "Gatsby DatoCMS creative portfolio demo",
+  "name": "datocms-livestorm",
+  "description": "Technical test for Livestorm",
   "version": "1.0.0",
-  "author": "Stefano Verna <s.verna@datocms.com>",
+  "author": "Thomas Bayet <bayet.thomas@gmail.com>",
   "dependencies": {
     "dotenv": "^7.0.0",
     "gatsby": "^2.8.2",
@@ -16,21 +16,24 @@
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-helmet": "^5.2.0",
-    "react-masonry-component": "^6.2.1",
-    "react-slick": "^0.23.2",
-    "slick-carousel": "^1.8.1"
+    "react-masonry-component": "^6.2.1"
   },
   "keywords": [
-    "gatsby"
+    "gatsby",
+    "datoCMS",
+    "netlify",
+    "blog"
   ],
   "license": "MIT",
   "main": "n/a",
   "scripts": {
-    "build": "gatsby build",
+    "lint": "npx eslint src",
+    "build": "npx eslint src && gatsby build",
     "develop": "gatsby develop",
     "format": "prettier --trailing-comma es5 --no-semi --single-quote --write \"src/**/*.js\""
   },
   "devDependencies": {
+    "eslint-config-react-app": "^5.0.2",
     "prettier": "^1.17.0"
   }
 }

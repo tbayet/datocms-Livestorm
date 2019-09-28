@@ -2,7 +2,7 @@ require('dotenv').config()
 
 module.exports = {
   siteMetadata: {
-    title: `Creative Portfolio`,
+    title: `Livestorm`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -11,6 +11,7 @@ module.exports = {
     {
       resolve: `gatsby-source-datocms`,
       options: {
+        previewMode: false,
         apiToken: process.env.DATO_API_TOKEN,
       },
     },

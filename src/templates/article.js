@@ -6,22 +6,22 @@ import Layout from "../components/layout"
 
 export default ({ data }) => (
   <Layout>
+    <HelmetDatoCms seo={data.datoCmsArticle.seoMetaTags} />
     <article className="article">
-      <Img fluid={data.datoCmsArticle.mainPicture.fluid} height="400" />
-      <HelmetDatoCms seo={data.datoCmsArticle.seoMetaTags} />
-      <div className="article__inner">
-        <h1 className="article__title">{data.datoCmsArticle.title}</h1>
-        <h2 className="article__subtitle">{data.datoCmsArticle.subtitle}</h2>
-          {/* {data.datoCmsArticle.gallery.map(({ fluid }) => (
-            <img alt={data.datoCmsArticle.title} key={fluid.src} src={fluid.src} />
-          ))} */}
-        <div
-          className="article__content"
-          dangerouslySetInnerHTML={{
-            __html: data.datoCmsArticle.contentNode.childMarkdownRemark.html,
-          }}
-        />
-      </div>
+      <header className="article__header">
+        <Img className="article__image" fluid={data.datoCmsArticle.mainPicture.fluid} />
+        <h1 className="article__big_title">{data.datoCmsArticle.title}</h1>
+      </header>
+      <section className="article__title">
+        <h2>{ data.datoCmsArticle.title }</h2>
+        <h3>{ data.datoCmsArticle.subtitle }</h3>
+      </section>
+      <article
+        className="article__content"
+        dangerouslySetInnerHTML={{
+          __html: data.datoCmsArticle.contentNode.childMarkdownRemark.html,
+        }}
+      />
     </article>
   </Layout>
 )

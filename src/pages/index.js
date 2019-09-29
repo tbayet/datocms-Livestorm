@@ -5,18 +5,20 @@ import ArticlePreview from "../components/articlePreview.js"
 
 const IndexPage = ({ data }) => (
   <Layout>
+    <div className="articles__intro">
+      <p>{data.datoCmsSite.globalSeo.fallbackSeo.description}</p>
+    </div>
     <div className="articles__container">
       {
         data.allDatoCmsArticle.edges.map(({ node: article }) => (
           <ArticlePreview key={article.id} { ...article } />
         ))
-        .concat(data.allDatoCmsArticle.edges.map(({ node: article }) => (
-          <ArticlePreview key={Date()} { ...article } />
-        )))
-        .concat(data.allDatoCmsArticle.edges.map(({ node: article }) => (
-          <ArticlePreview key={Date()+1} { ...article } />
-        )))
       }
+    </div>
+    <div className="articles__outro">
+      <p>Want to use any of these photos? Go for it!</p>
+      <button>Show me what you used them</button>
+      <p>for!</p>
     </div>
   </Layout>
 )
@@ -37,6 +39,13 @@ export const query = graphql`
               ...GatsbyDatoCmsSizes
             }
           }
+        }
+      }
+    }
+    datoCmsSite {
+      globalSeo {
+        fallbackSeo {
+          description
         }
       }
     }

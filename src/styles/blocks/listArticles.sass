@@ -1,3 +1,21 @@
+.articles__intro
+  width: 100%
+  text-align: center
+  padding-top: 150px
+  padding-bottom: 150px
+  font-size: 1.2em
+.articles__outro
+  width: 100%
+  text-align: center
+  padding-top: 100px
+  padding-bottom: 100px
+  font-size: 1.2em
+  & > *
+    margin: 10px
+  & > button
+    height: 40px
+    border-radius: 15px
+
 .articles__container
   display: flex
   flex-wrap: wrap
@@ -10,15 +28,15 @@
     .preview_card__image img
       transition: transform 0.3s
       transform: scale(1.1)
-.preview_card:nth-of-type(3n)
-  background-color: $body-color
-  flex: 1 100%
-.preview_card:nth-of-type(3n+1)
-  background-color: $red
-  flex: 0.5 50%
-.preview_card:nth-of-type(3n+2)
-  background-color: $blue
-  flex: 0.5 50%
+  &:nth-of-type(3n)
+    background-color: $body-color
+    flex: 1 100%
+  &:nth-of-type(3n+1)
+    background-color: $red
+    flex: 0.5 50%
+  &:nth-of-type(3n+2)
+    background-color: $blue
+    flex: 0.5 50%
 
 .preview_card__image
   height: 100%

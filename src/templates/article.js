@@ -9,12 +9,15 @@ export default ({ data }) => (
     <HelmetDatoCms seo={data.datoCmsArticle.seoMetaTags} />
     <article className="article">
       <header className="article__header">
-        <Img className="article__image" fluid={data.datoCmsArticle.mainPicture.fluid} />
+        {
+          data.datoCmsArticle.mainPicture &&
+          <Img className="article__image" fluid={data.datoCmsArticle.mainPicture.fluid} />
+        }
         <h1 className="article__big_title">{data.datoCmsArticle.title}</h1>
       </header>
       <section className="article__title">
         <h2>{ data.datoCmsArticle.title }</h2>
-        <h3>{ data.datoCmsArticle.subtitle }</h3>
+        { data.datoCmsArticle.subtitle && <h3>{ data.datoCmsArticle.subtitle }</h3> }
       </section>
       <article
         className="article__content"

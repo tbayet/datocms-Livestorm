@@ -16,7 +16,7 @@ exports.createPages = ({ graphql, actions }) => {
         }
       }
     `).then(result => {
-      result.data.allDatoCmsArticle.edges.map(({ node }) => {
+      result.data.allDatoCmsArticle.edges.forEach(({ node }) => {
         createPage({
           path: `article/${node.articleUrl}`,
           component: path.resolve(`./src/templates/article.js`),

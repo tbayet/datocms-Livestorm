@@ -63,7 +63,8 @@ if not *''Deployed and up to date''*, you can trigger the deploy by clicking `De
  
 ### 5. Rebuild you own DatoCMS
 You can clone this project and connect with your own DatoCMS project by reproducing this model:
-![DatoCMS Models](dataModel.png)
+
+![DatoCMS Models](datoModel.png)
 
 Take a look at the GraphQL requests for better understanding
 
